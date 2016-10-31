@@ -1,6 +1,6 @@
 # URLockbox
 
-[Heroku](https://possessed-asylum-98254.herokuapp.com/)
+## LIVE in production at [Heroku](https://possessed-asylum-98254.herokuapp.com/)
 
 URLockbox is a small application for tossing various forms of inspiration forlater review. It's not unlike [Delicious](https://delicious.com) or [Pinboard](http://pinboard.com).
 
@@ -26,8 +26,6 @@ We build out a rails application that allows an authenticated user to:
   ## To run in Development
   * `rails s`
   * Go to [http://localhost:3000](http://localhost:3000) in your browser.
-
-  ## LIVE in production at [Heroku](https://possessed-asylum-98254.herokuapp.com/)
 
   ## Testing
   * rspec
