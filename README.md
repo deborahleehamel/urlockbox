@@ -1,8 +1,8 @@
 # URLockbox
 
-URLockbox is a project used for Module 4 assessment at Turing School.
+URLockbox is a small application for tossing various forms of inspiration forlater review. It's not unlike [Delicious](https://delicious.com) or [Pinboard](http://pinboard.com).
 
-We will build out a rails application that allows an authenticated user to:
+We build out a rails application that allows an authenticated user to:
   * submit and view links
   * update link status with options to "Mark as Read" and "Mark as Unread" without reloading the page
   * edit links after they have added some to my URLockbox when viewing links index
