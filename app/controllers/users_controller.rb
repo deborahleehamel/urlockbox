@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       redirect_to links_path
     else
       flash.now[:error] = "Oops! Please try again."
-      redirect_to :new
+      redirect_to ('/users/new')
     end
   end
 
