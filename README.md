@@ -25,7 +25,7 @@ We build out a rails application that allows an authenticated user to:
   * `rails s`
   * Go to [http://localhost:3000](http://localhost:3000) in your browser.
 
-  ## LIVE in production at [Heroku](https://.herokuapp.com)
+  ## LIVE in production at [Heroku](https://possessed-asylum-98254.herokuapp.com/)
 
   ## Testing
   * rspec
