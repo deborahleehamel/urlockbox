@@ -17,6 +17,6 @@ RSpec.feature "User can sign up" do
 
     expect(current_path).to eq "/links"
     expect(page).to have_content "New account successfully created!"
-    expect(page).to have_content "Your URLockbox Link Index"
+    expect(page).to have_content "My URLockbox"
   end
 end

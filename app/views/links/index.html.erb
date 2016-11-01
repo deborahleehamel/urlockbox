@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>My URLockbox</h1>
+
+  <h2>Add a link here!</h2>
+
+  <%= form_for :link, url: '/links' do |f| %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %><br><br>
+
+    <%= f.label :url, "Url" %><br>
+    <%= f.text_field :url %><br><br>
+
+    <%= f.submit "Add new link", class: "btn btn-successs" %>
+  <% end %>
+
+  <h2>All My Links</h2>
+  <%= current_user.links.each do |link| %>
+  <%= link.title %>
+  <%= link.url %>
+  <% end %>
+</div>
