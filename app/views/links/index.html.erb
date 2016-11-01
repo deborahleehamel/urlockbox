@@ -1,21 +1,32 @@
 <div class="container">
   <h1>My URLockbox</h1>
 
+  <div>
+
   <h2>Add a link here!</h2>
 
   <%= form_for :link, url: '/links' do |f| %>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %><br><br>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
 
-    <%= f.label :url, "Url" %><br>
-    <%= f.text_field :url %><br><br>
+    <%= f.label :url, "Url" %>
+    <%= f.text_field :url %>
 
-    <%= f.submit "Add new link", class: "btn btn-successs" %>
+    <%= f.submit "Add new link", class: "btn btn-success" %>
   <% end %>
+</div>
+
+<div>
 
   <h2>All My Links</h2>
-  <%= current_user.links.each do |link| %>
-  <%= link.title %>
-  <%= link.url %>
+  <% if current_user.links.nil? %>
+    <p>Why haven't you added any links yet?</p>
+  <% else %>
+    <%= current_user.links.each do |link| %>
+      <%= link.title %><br>
+      <%= link.url %><br><br>
+    <% end %>
   <% end %>
+</div>
+
 </div>
