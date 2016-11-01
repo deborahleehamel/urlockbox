@@ -7,7 +7,7 @@ RSpec.feature "authenticated user can add a link" do
 
       user = create(:user, password: "password")
       visit '/'
-      click_on "Log in"
+      click_on "Log In"
 
       fill_in "Email", with: user.email
       fill_in "Password", with: "password"
