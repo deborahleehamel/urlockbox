@@ -1,7 +1,7 @@
 <div class="container">
   <h1>My URLockbox</h1>
 
-  <div>
+  <div class="add_link_form text-center">
     <h2>Add a link here!</h2>
 
     <%= form_for :link, url: '/links' do |f| %>
@@ -15,16 +15,33 @@
       <% end %>
   </div>
 
-  <div>
+<p></p>
+<p></p>
+<div class="panel panel-default">
     <h2>All My Links</h2>
-    <% if current_user.links.nil? %>
-      <p>Why haven't you added any links yet?</p>
-    <% else %>
-      <%= current_user.links.each do |link| %>
-        <%= link.title %><br>
-        <%= link.url %><br><br>
+    <table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>URL</th>
+            <th>Read/Unread</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% current_user.links.each do |link| %>
+        <tr>
+            <td><%= link.title %></td>
+            <td><%= link.url %></td>
+            <td><%= link.read %></td>
+            <td></td>
+        </tr>
         <% end %>
-    <% end %>
+
+
+    </tbody>
+</table>
+
   </div>
 
 </div>
