@@ -11,7 +11,7 @@ class LinksController < ApplicationController
       flash[:success] = 'New link has been added!'
       redirect_to links_path
     else
-      flash.new[:error] = "Link is not valid. Please try adding again."
+      flash[:error] = "Link is not valid. Please try adding again."
       redirect_to links_path
     end
   end
