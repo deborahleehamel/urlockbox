@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "authenticated user can add a link" do
+RSpec.feature "authenticated user can add a link", js: true do
 
   context "valid link url and title submitted" do
     scenario "sees link appear on index page" do
