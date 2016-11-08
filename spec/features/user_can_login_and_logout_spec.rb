@@ -1,6 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "User can Log in and Log out" do
+
   context "see Log in" do
     scenario "fills out form to Log in" do
       user = create(:user, email: "deb@tnemail.com", password: "password")
@@ -55,4 +56,5 @@ RSpec.feature "User can Log in and Log out" do
       expect(page).to have_content("Log in")
     end
   end
+  
 end
