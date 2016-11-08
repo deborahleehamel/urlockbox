@@ -87,3 +87,10 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+def login(user)
+  visit login_path
+  fill_in "Email", with: "deb@tnemail.com"
+  fill_in "Password", with: "password"
+  click_on "Log in"
+end

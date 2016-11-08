@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect_to links_path
       else
-        flash[:error] = "Oops! Your email was taken. Please try again."
+        flash[:error] = "Oops! Your email was invalid. Please try again."
         redirect_to new_user_path
       end
   end
