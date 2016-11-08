@@ -10,8 +10,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to links_path
     else
-      flash.now[:error] = "Oops! Please try again."
-      redirect_to ('/users/new')
+      flash.now[:error] = "Oops! Your input was invalid. Please try again."
+      redirect_to new_user_path
     end
   end
 
