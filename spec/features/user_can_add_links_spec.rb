@@ -25,9 +25,11 @@ RSpec.feature "authenticated user can add a link" do
 
       visit '/links'
 
-      fill_in "Url", with: "squirrlystuff"
-      fill_in "Title", with: "TED: Ideas worth spreading"
-      click_on "Add new link"
+      within(".add-link-form") do
+        fill_in "Url", with: "squirrlystuff"
+        fill_in "Title", with: "TED: Ideas worth spreading"
+        click_on "Add new link"
+      end
 
       expect(page).to have_content("Link is not valid. Please try adding again.")
     end
