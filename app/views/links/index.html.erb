@@ -29,19 +29,24 @@
         </tr>
     </thead>
     <tbody>
+      
         <% current_user.links.each do |link| %>
-        <tr>
-          <td ><%= link.title %></td>
-          <td><%= link.url %></td>
-          <td><% if link.read %>
-                Read
-              <% else %>
-                Unread
-              <% end %>
-          </td>
-        </tr>
+          <% if link.read %>
+            <tr raw-id="<%= link.id %>" id="link-<%= link.id %>" class="Read">
+              <td ><%= link.title %></td>
+              <td><%= link_to link.url %></td>
+              <td><%= link_to "Mark as Unread", link_path(link, read: false), method: :patch %>
+              </td>
+            </tr>
+          <% else %>
+            <tr raw-id="<%= link.id %>" id="link-<%= link.id %>" class="Unread">
+              <td ><%= link.title %></td>
+              <td><%= link_to link.url %></td>
+              <td><%= link_to "Mark as Read", link_path(link, read: true), method: :patch %>
+              </td>
+            </tr>
+          <% end %>
         <% end %>
-
 
     </tbody>
 </table>
