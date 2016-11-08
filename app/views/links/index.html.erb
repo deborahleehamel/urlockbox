@@ -4,7 +4,7 @@
   <div class="add_link_form text-center">
     <h2>Add a link here!</h2>
 
-    <%= form_for :link, url: '/links' do |f| %>
+    <%= form_for :link, url: links_path do |f| %>
       <%= f.label :title %>
       <%= f.text_field :title %>
 
