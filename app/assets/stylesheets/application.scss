@@ -13,3 +13,12 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ .read {
+   background-color: lightgray;
+   text-decoration: line-through;
+ }
+
+ .unread {
+   background-color: lightgreen;
+ }
