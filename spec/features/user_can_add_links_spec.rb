@@ -5,9 +5,8 @@ RSpec.feature "authenticated user can add a link", js: true do
   context "valid link url and title submitted" do
     scenario "sees link appear on index page" do
 
-
       user = User.create(email: "deb@tnemail.com", password: "password", password_confirmation: "password")
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       login(user)
 
@@ -19,10 +18,12 @@ RSpec.feature "authenticated user can add a link", js: true do
       expect(page).to have_content("https://www.ted.com/")
     end
 
-    xscenario "link must be valid" do
+      scenario "link must be valid" do
 
       user = User.create(email: "deb@tnemail.com", password: "password")
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+      login(user)
 
       visit '/links'
 

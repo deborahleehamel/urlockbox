@@ -31,7 +31,7 @@ class LinksController < ApplicationController
       redirect_to links_path
     else
       flash[:error] = "Your link is invalid. Please try again."
-      redirec_to edit_link_path
+      redirect_to edit_link_path
     end
   end
 
