@@ -17,8 +17,15 @@
 
   <div>
     <h3>Search:</h3>
-    <input type="text" class="form-control" id="search-box"
+    <input type="text" class="form-control" id="search-box">
   </div>
+
+  <div>
+    <h3>Filter Status:</h3>
+    <%= select("link", "filter_status", ["All", "Read", "Unread"], selected: "All") %>
+  </div>
+
+
 
 <p></p>
 <p></p>
@@ -37,7 +44,7 @@
 
         <% current_user.links.each do |link| %>
           <% if link.read %>
-            <tr raw-id="<%= link.id %>" id="link-<%= link.id %>" class="read">
+            <tr raw-id="<%= link.id %>" id="link-<%= link.id %>" class="link read" data-status="Read">
               <td classs="link-title"><%= link.title %></td>
               <td class="link-url"><%= link_to link.url %></td>
               <td class="link-status"><%= link_to "Mark as Unread", link_path(link, read: false), method: :patch %>
@@ -45,7 +52,7 @@
               <td><%= link_to "Edit", edit_link_path(link) %></td>
             </tr>
           <% else %>
-            <tr raw-id="<%= link.id %>" id="link-<%= link.id %>" class="unread">
+            <tr raw-id="<%= link.id %>" id="link-<%= link.id %>" class="link unread" data-status="Unread">
               <td class="link-title"><%= link.title %></td>
               <td class="link-url"><%= link_to link.url %></td>
               <td class="link-status"><%= link_to "Mark as Read", link_path(link, read: true), method: :patch %>
