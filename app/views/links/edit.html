@@ -1,0 +1,8 @@
+<h1>Edit This Link <%= @link.title %></h1>
+<div id="edit-form">
+	<%= form_for (@link) do |f| %>
+	<%= f.text_field :title %>
+	<%= f.url_field :url %>
+	<%= f.submit "Update Link", class: "btn btn-default" %>
+	<% end %>
+</div>

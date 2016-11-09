@@ -15,7 +15,7 @@ class LinksController < ApplicationController
       link.save
       redirect_to links_path
     else
-      flash[:error] = "Invalid URL"
+      flash[:error] = "Link is not valid. Please try adding again."
       redirect_to links_path
     end
   end
