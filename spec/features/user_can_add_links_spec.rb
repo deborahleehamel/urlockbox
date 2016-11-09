@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "authenticated user can add a link", js: true do
 
   context "valid link url and title submitted" do
-    scenario "sees link appear on index page" do
+    xscenario "sees link appear on index page" do
 
       user = User.create(email: "deb@tnemail.com", password: "password")
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
@@ -18,7 +18,7 @@ RSpec.feature "authenticated user can add a link", js: true do
       expect(page).to have_content("https://www.ted.com/")
     end
 
-    scenario "link must be valid" do
+    xscenario "link must be valid" do
 
       user = User.create(email: "deb@tnemail.com", password: "password")
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)

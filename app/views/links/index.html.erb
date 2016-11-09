@@ -4,7 +4,7 @@
   <div class="add-link-form text-center">
     <h2>Add a link here!</h2>
 
-    <%= form_for :link, url: links_path do |f| %>
+    <%= form_for (@add_link) do |f| %>
       <%= f.label :title %>
       <%= f.text_field :title %>
 
@@ -15,6 +15,18 @@
       <% end %>
   </div>
 
+  <div>
+    <h3>Search:</h3>
+    <input type="text" class="form-control" id="search-box">
+  </div>
+
+  <div>
+    <h3>Filter Status:</h3>
+    <%= select("link", "filter_status", ["All", "Read", "Unread"], selected: "All") %>
+  </div>
+
+
+
 <p></p>
 <p></p>
 <div id="return-data" class="panel panel-default">
@@ -22,7 +34,7 @@
     <table id="links-list" class="table">
     <thead>
         <tr>
-            <th><Title</th>
+            <th>Title</th>
             <th>URL</th>
             <th>Read/Unread</th>
             <th>Edit</th>
@@ -32,18 +44,21 @@
 
         <% current_user.links.each do |link| %>
           <% if link.read %>
-            <tr raw-id="<%= link.id %>" id="link-<%= link.id %>" class="read">
-              <td ><%= link.title %></td>
-              <td><%= link_to link.url %></td>
-              <td><%= link_to "Mark as Unread", link_path(link, read: false), method: :patch %>
+            <tr raw-id="<%= link.id %>" id="link-<%= link.id %>" class="link read" data-status="Read">
+              <td classs="link-title"><%= link.title %></td>
+              <td class="link-url"><%= link_to link.url %></td>
+              <td class="link-status"><%= link_to "Mark as Unread", link_path(link, read: false), method: :patch %>
               </td>
+              <td><%= link_to "Edit", edit_link_path(link) %></td>
             </tr>
           <% else %>
-            <tr raw-id="<%= link.id %>" id="link-<%= link.id %>" class="unread">
-              <td ><%= link.title %></td>
-              <td><%= link_to link.url %></td>
-              <td><%= link_to "Mark as Read", link_path(link, read: true), method: :patch %>
+            <tr raw-id="<%= link.id %>" id="link-<%= link.id %>" class="link unread" data-status="Unread">
+              <td class="link-title"><%= link.title %></td>
+              <td class="link-url"><%= link_to link.url %></td>
+              <td class="link-status"><%= link_to "Mark as Read", link_path(link, read: true), method: :patch %>
               </td>
+              <td><%= link_to "Edit", edit_link_path(link) %></td>
+
             </tr>
           <% end %>
         <% end %>

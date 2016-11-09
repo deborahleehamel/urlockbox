@@ -9,12 +9,12 @@ RSpec.feature "User updates read status for link" do
       fill_in "Title", with: "Happy Days"
       fill_in "Url", with: "http://happy.com"
       click_on "Add new link"
-      expect(page).to have_css '.Unread'
+      expect(page).to have_css '.unread'
 
       click_on "Mark as Read"
 
       expect(page).to have_content "Mark as Unread"
-      expect(page).to have_css '.Read'      
+      expect(page).to have_css '.read'
     end
   end
 end
