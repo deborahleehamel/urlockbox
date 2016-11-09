@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to links_path
     else
-      flash[:error] = "Oops! Please try again."
+      flash[:error] = "Oops! Your login was invalid. Please check your email is valid and passwords match."
       render :new
     end
   end

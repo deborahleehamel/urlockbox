@@ -1,16 +1,17 @@
 <div class="container">
-<h1>Sign up here!</h1>
+  <h1>Sign up here!</h1>
+  <div class="signup-form">
+    <%= form_for(@user) do |f| %>
+      <%= f.label :email %>
+      <%= f.email_field :email %><br>
 
-<%= form_for(@user) do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email %><br>
+      <%= f.label :password %>
+      <%= f.password_field :password%><br>
 
-  <%= f.label :password %>
-  <%= f.password_field :password%><br>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation%><br><br>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation%><br><br>
-
-  <%= f.submit "Create account", class: "btn btn-success" %>
-<% end %>
+      <%= f.submit "Create account", class: "btn btn-success" %>
+    <% end %>
+  </div>
 </div>

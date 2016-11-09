@@ -22,7 +22,7 @@ RSpec.feature "User can Log in and Log out" do
       fill_in "Password", with: "password"
       click_button "Log in"
 
-      expect(page).to have_content("Oops! Please try again.")
+      expect(page).to have_content("Oops! Your login was invalid. Please check your email is valid and passwords match.")
       expect(page).to have_content("Log in")
     end
 
@@ -34,7 +34,7 @@ RSpec.feature "User can Log in and Log out" do
       fill_in "Password", with: "badpassword"
       click_button "Log in"
 
-      expect(page).to have_content("Oops! Please try again.")
+      expect(page).to have_content("Oops! Your login was invalid. Please check your email is valid and passwords match.")
       expect(page).to have_content("Log in")
     end
   end
@@ -56,5 +56,5 @@ RSpec.feature "User can Log in and Log out" do
       expect(page).to have_content("Log in")
     end
   end
-  
+
 end

@@ -1,9 +1,12 @@
 <div class="container">
+  <div class="jumbotron">
   <h1>Put it in your URLockbox<h1>
+    <p>Don't lose your favorite links. Save them to read later.</p>
 
     <div class="container">
       <% if !current_user %>
-        <%= link_to "Log In", "/login" %> |
-        <%= link_to "Sign Up", "users/new" %>
+        <%= link_to "Log In", login_path %> |
+        <%= link_to "Sign Up", new_user_path %>
       <% end %>
   </div>
+</div>

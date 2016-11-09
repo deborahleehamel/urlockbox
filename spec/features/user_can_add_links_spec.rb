@@ -1,26 +1,37 @@
 require 'rails_helper'
 
-RSpec.feature "authenticated user can add a link" do
+RSpec.feature "authenticated user can add a link", js: true do
 
   context "valid link url and title submitted" do
     scenario "sees link appear on index page" do
 
-      user = create(:user, password: "password")
-      visit '/'
-      click_on "Log In"
+      user = User.create(email: "deb@tnemail.com", password: "password")
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-      fill_in "Email", with: user.email
-      fill_in "Password", with: "password"
-      click_button "Log in"
+      visit '/links'
 
       fill_in "Title", with: "TED: Ideas worth spreading"
       fill_in "Url", with: "https://www.ted.com/"
       click_on "Add new link"
 
-      visit "/links"
-
       expect(page).to have_content("TED: Ideas worth spreading")
       expect(page).to have_content("https://www.ted.com/")
+    end
+
+    scenario "link must be valid" do
+
+      user = User.create(email: "deb@tnemail.com", password: "password")
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+      visit '/links'
+
+      within(".add-link-form") do
+        fill_in "Url", with: "squirrlystuff"
+        fill_in "Title", with: "TED: Ideas worth spreading"
+        click_on "Add new link"
+      end
+
+      expect(page).to have_content("Link is not valid. Please try adding again.")
     end
   end
 end

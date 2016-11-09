@@ -1,32 +1,56 @@
 <div class="container">
   <h1>My URLockbox</h1>
 
-  <div>
+  <div class="add-link-form text-center">
+    <h2>Add a link here!</h2>
 
-  <h2>Add a link here!</h2>
+    <%= form_for :link, url: links_path do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
 
-  <%= form_for :link, url: '/links' do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+      <%= f.label :url, "Url" %>
+      <%= f.text_field :url %>
 
-    <%= f.label :url, "Url" %>
-    <%= f.text_field :url %>
+      <%= f.submit "Add new link", class: "btn btn-success" %>
+      <% end %>
+  </div>
 
-    <%= f.submit "Add new link", class: "btn btn-success" %>
-  <% end %>
-</div>
+<p></p>
+<p></p>
+<div id="return-data" class="panel panel-default">
+    <h2>All My Links</h2>
+    <table id="links-list" class="table">
+    <thead>
+        <tr>
+            <th><Title</th>
+            <th>URL</th>
+            <th>Read/Unread</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
 
-<div>
+        <% current_user.links.each do |link| %>
+          <% if link.read %>
+            <tr raw-id="<%= link.id %>" id="link-<%= link.id %>" class="read">
+              <td ><%= link.title %></td>
+              <td><%= link_to link.url %></td>
+              <td><%= link_to "Mark as Unread", link_path(link, read: false), method: :patch %>
+              </td>
+            </tr>
+          <% else %>
+            <tr raw-id="<%= link.id %>" id="link-<%= link.id %>" class="unread">
+              <td ><%= link.title %></td>
+              <td><%= link_to link.url %></td>
+              <td><%= link_to "Mark as Read", link_path(link, read: true), method: :patch %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
 
-  <h2>All My Links</h2>
-  <% if current_user.links.nil? %>
-    <p>Why haven't you added any links yet?</p>
-  <% else %>
-    <%= current_user.links.each do |link| %>
-      <%= link.title %><br>
-      <%= link.url %><br><br>
-    <% end %>
-  <% end %>
-</div>
+    </tbody>
+</table>
+
+  </div>
 
 </div>
