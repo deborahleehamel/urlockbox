@@ -1,11 +1,11 @@
-function updateStatus(id, direction) {
+function updateStatus(id, status) {
   $.ajax({
     method: "PATCH",
     url: "/api/v1/links/" + id,
-    data: { id: id, read: direction},
+    data: { id: id, read: status},
     success: function(){
       console.log("Holy cow");
-      if(direction === true) {
+      if(status === true) {
         $("#read-" + id).hide();
         $("#unread-" + id).show();
       } else {
