@@ -6,7 +6,7 @@ describe "All Links" do
 			user = User.create(email: 'bernie@tnemail.com', password: 'password')
 			added_link = user.links.create(title: 'Berney Sanders', url: 'http://berniesanders.com')
 
-			get "/api/v1/links/"
+			get "/api/v1/links"
 
 			links = JSON.parse(response.body)
 			link = links.first

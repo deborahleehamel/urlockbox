@@ -3,12 +3,13 @@ require 'rails_helper'
 RSpec.feature "authenticated user can add a link", js: true do
 
   context "valid link url and title submitted" do
-    xscenario "sees link appear on index page" do
+    scenario "sees link appear on index page" do
 
-      user = User.create(email: "deb@tnemail.com", password: "password")
+
+      user = User.create(email: "deb@tnemail.com", password: "password", password_confirmation: "password")
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-      visit '/links'
+      login(user)
 
       fill_in "Title", with: "TED: Ideas worth spreading"
       fill_in "Url", with: "https://www.ted.com/"
