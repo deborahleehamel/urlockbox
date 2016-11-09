@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "User can edit a link" do
+RSpec.feature "User can edit a link", js: true do
   context "url is valid" do
     scenario "change url appears on page" do
       user = User.create(email: "deb@tnemail.com", password: "password")
