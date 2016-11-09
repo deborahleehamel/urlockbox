@@ -34,14 +34,14 @@
           <% if link.read %>
             <tr raw-id="<%= link.id %>" id="link-<%= link.id %>" class="read">
               <td ><%= link.title %></td>
-              <td><%= link.url %></td>
+              <td><%= link_to link.url %></td>
               <td><%= link_to "Mark as Unread", link_path(link, read: false), method: :patch %>
               </td>
             </tr>
           <% else %>
             <tr raw-id="<%= link.id %>" id="link-<%= link.id %>" class="unread">
               <td ><%= link.title %></td>
-              <td><%= link.url %></td>
+              <td><%= link_to link.url %></td>
               <td><%= link_to "Mark as Read", link_path(link, read: true), method: :patch %>
               </td>
             </tr>
